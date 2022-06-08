@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Suchergebnisse für <?php echo $_GET['query']; ?></title>
+	<title>Search results for <?php echo $_GET['query']; ?></title>
 	<meta charset="utf-8"></meta>
 	<link rel="stylesheet" href="search.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
 	<input type="text" name="query" list="query_list" autocomplete="off" id="query_input" value="<?php echo $_GET['query']; ?>">
 	<input type="submit" value="">
 </form>
-<p>Suchergebnisse für <?php echo $_GET['query']; ?></p>
+<p>Search results for <?php echo $_GET['query']; ?></p>
 <?php
 // Typically more memory and more time is required than for normal php scripts
 ini_set('memory_limit','1000M');
@@ -80,17 +80,17 @@ if($search_query != '') {
 			}
 		}
 	}
-	else echo '<p style="font-weight:bold">Keine Ergebnisse für diese Suche gefunden.</p>';
-} else echo '<p>Keine Eingabe.</p>';
+	else echo '<p style="font-weight:bold">No results found for this search.</p>';
+} else echo '<p>No input.</p>';
 ?>
 <script src="suggest.js" async></script>
 <div class="pages">
 	<?php if($rc > ((isset($_GET['start']) ? $_GET['start'] : 0) + MAX_RESULTS)) { ?>
-	<a href="?<?php echo http_build_query($_GET); ?>&start=<?php echo (isset($_GET['start']) ? $_GET['start'] : 0) + MAX_RESULTS; ?>">Nächste</a>
+	<a href="?<?php echo http_build_query($_GET); ?>&start=<?php echo (isset($_GET['start']) ? $_GET['start'] : 0) + MAX_RESULTS; ?>">Next</a>
 	<?php } ?>
 </div>
 <div class="foot">
-	<div class="speed"><?php echo $rc; ?> Resultate aus <?php echo $sres_count; ?> indexierten Seiten gefunden in <?php echo microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']; ?>ms</div>
+	<div class="speed"><?php echo $rc; ?> results out of <?php echo $sres_count; ?> indexed sites found in <?php echo microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']; ?>ms</div>
 </div>
 </body>
 </html>
